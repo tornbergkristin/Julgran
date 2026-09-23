@@ -30,7 +30,7 @@ namespace Julgran
             int höjd = int.Parse(Console.ReadLine());
 
             int bredd = höjd * 2 - 1;
-
+            Random slump = new Random();
             // Rita granens delar
             for (int del = 1; del <= 3; del++)
             {
@@ -43,7 +43,25 @@ namespace Julgran
                         Console.Write(" ");
 
                     for (int i = 0; i < stjärnor; i++)
-                        Console.Write("*");
+                    {
+                        // Första raden ska alltid vara en stjärna
+                        if (del == 1 && rad == 0)
+                        {
+                            Console.Write("*");
+                        }
+                        else
+                        {
+                            // Cirka 20% chans för en julkula
+                            if (slump.Next(5) == 1)
+                            {
+                                Console.Write("o");
+                            }
+                            else
+                            {
+                                Console.Write("*");
+                            }
+                        }
+                    }
 
                     Console.WriteLine();
                 }
